@@ -1,0 +1,97 @@
+body {
+    background: url('./../img/bg.jpg') no-repeat center / cover;
+}
+
+.wrapper {
+    margin: 0 auto;
+    height: 100vh;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    position: relative;
+    border: 5px solid #755840;
+    box-shadow: 0px 0px 0px 25px #f0d9b5, 0px 0px 10px 43px rgba(0, 0, 0, 0.75);
+}
+
+.board__row {
+    display: flex;
+}
+
+.board__field {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board__numbers {
+    position: absolute;
+    top: 30px;
+    right: -22px;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+
+    color: #755840;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.board__numbers-item {
+    margin-bottom: 60px;
+}
+
+.board__letters {
+    position: absolute;
+    left: 35px;
+    bottom: -27px;
+    width: 100%;
+
+    color: #755840;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.board__letters-item {
+    margin-right: 62px;
+}
+
+.board__letters-item:last-child {
+    margin-right: 0px;
+}
+
+.board_black {
+    background-color: #b58863;
+}
+
+.board_white {
+    background-color: #f0d9b5;
+}
+
+.checker {
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+}
+
+.checker_black {
+    background: #000;
+}
+
+.checker_white {
+    background: #fff;
+}
+
+.checker.none {
+    display: none;
+}
+
+.button {
+    width: 250px;
+    height: 50px;
+}
