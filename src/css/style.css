@@ -1,5 +1,5 @@
 body {
-    background: url('./../img/bg.jpg') no-repeat center / cover;
+    /* background: url('./../img/bg.jpg') no-repeat center / cover; */
 }
 
 .wrapper {
@@ -67,10 +67,12 @@ body {
 
 .board_black {
     background-color: #b58863;
+    /* background: url('./../img/wood-1.jpg') no-repeat center / cover; */
 }
 
 .board_white {
     background-color: #f0d9b5;
+    /* background: url('./../img/wood-7.jpg') no-repeat center / cover; */
 }
 
 .checker {
@@ -80,7 +82,7 @@ body {
 }
 
 .checker_black {
-    background: #000;
+    background: rgb(17, 17, 17);
 }
 
 .checker_white {

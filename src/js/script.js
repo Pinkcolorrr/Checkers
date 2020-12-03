@@ -12,15 +12,18 @@ fillArr(fieldArr, board.fields);
 
 board.gameBoard.addEventListener('click', function Handler(event) {
     let checkerObj = Checkers.getField(fieldArr, event.target);
-    if (checkerObj && checkerObj.color != "none") {
-        if (!checkerObj.active) {
-            Checkers.makePassiveAll(fieldArr);
-            checkerObj.makeActive();
-        } else {
-            checkerObj.makePassive();
-        }
+    if (!checkerObj) return;
+
+    let active = Checkers.getActive(fieldArr);
+
+    if (active && checkerObj.color === "none") {
+        active.move(checkerObj);
+    } else
+    if (checkerObj.color != "none") {
+        checkerObj.makeActive(fieldArr);
     }
 });
+
 
 function fillArr(arr, fields) {
     for (let field of fields) {
