@@ -27,6 +27,24 @@ module.exports = {
         rules: [{
             test: /\.css$/i,
             use: ["style-loader", "css-loader"],
-        }, ],
+        }, {
+            test: /\.(png|jpe?g|gif|svg)$/i,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: './img',
+                    useRelativePath: true,
+                    limit: 8192,
+                }
+            }, {
+                loader: 'image-webpack-loader',
+                options: {
+                    mozjpeg: {
+                        progressive: true,
+                    }
+                }
+            }],
+        }, ]
     },
 }
