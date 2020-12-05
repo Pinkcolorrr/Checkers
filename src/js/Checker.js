@@ -9,14 +9,23 @@ export class Checkers {
 
     move(newChecker) {
         if (newChecker.color != "none") return;
-        newChecker.field.addChecker(this.color);
-        newChecker.color = this.color;
 
+        this.makeVisible(newChecker);
+
+        this.makeInvisible();
+
+        Checkers.changeMoveOrder();
+    }
+
+    makeVisible(checker) {
+        checker.field.addChecker(this.color);
+        checker.color = Checkers.moveOrder;
+    }
+
+    makeInvisible() {
         this.field.removeChecker();
         this.color = "none";
-
         this.makePassive();
-        Checkers.changeMoveOrder();
     }
 
     makeActive(fieldArr) {
@@ -24,17 +33,19 @@ export class Checkers {
             Checkers.makePassiveAll(fieldArr);
             this.active = true;
             this.field.firstChild.style.border = "2px solid blue";
+            Checkers.activeChecker = this;
         }
     }
 
     makePassive() {
         this.active = false;
         this.field.firstChild.style.border = "none";
+        Checkers.activeChecker = undefined;
     }
 
     static makePassiveAll(arr) {
         arr.forEach(item => {
-            item.makePassive();
+            if (item.active) item.makePassive();
         });
     }
 
@@ -56,3 +67,4 @@ export class Checkers {
 }
 
 Checkers.moveOrder = "white";
+Checkers.activeChecker;

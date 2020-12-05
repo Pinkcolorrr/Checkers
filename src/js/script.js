@@ -14,12 +14,9 @@ board.gameBoard.addEventListener('click', function Handler(event) {
     let checkerObj = Checkers.getField(fieldArr, event.target);
     if (!checkerObj) return;
 
-    let active = Checkers.getActive(fieldArr);
-
-    if (active && checkerObj.color === "none") {
-        active.move(checkerObj);
-    } else
-    if (checkerObj.color != "none") {
+    if (Checkers.activeChecker && checkerObj.color === "none") {
+        Checkers.activeChecker.move(checkerObj);
+    } else {
         checkerObj.makeActive(fieldArr);
     }
 });
